@@ -37,7 +37,7 @@ def product_alt_view(request, pk=None, *args, **kwargs):
             obj = get_object_or_404(Product, pk=pk) # Could raise an error 404
             data = ProductSerializer(obj, many=False).data
             return Response(data)
-        
+
         # list view
         queryset = Product.objects.all()
         data = ProductSerializer(queryset, many=True).data
