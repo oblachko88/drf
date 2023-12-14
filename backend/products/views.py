@@ -48,11 +48,14 @@ def product_alt_view(request, pk=None, *args, **kwargs):
 
     if method == 'POST':
         serializer = ProductSerializer(data=request.data)
+
         if serializer.is_valid(raise_exception=True):
             title = serializer.validated_data.get('title')
             content = serializer.validated_data.get('content')
+
             if content is None: 
                 content = title
+
             serializer.save(content=content)
             return Response(serializer.data)
         return Response({"invalid": "not good data"}, status=400)
