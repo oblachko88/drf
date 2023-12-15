@@ -14,3 +14,5 @@ class Product(models.Model):
 
     def get_discount(self):
         return "122"
+
+    
