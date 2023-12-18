@@ -4,6 +4,7 @@ from django.db import models
 
 class Product(models.Model):
     # Each model have a PK - Primary Key by default
+    # pk 
     title = models.CharField(max_length=120)
     content = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=15, decimal_places=2, default=99.99)
@@ -13,6 +14,6 @@ class Product(models.Model):
         return "%.2f" %(float(self.price) * 0.8)
 
     def get_discount(self):
-        return "122"
+        return "A discount here."
 
     
