@@ -16,4 +16,3 @@ class Product(models.Model):
     def get_discount(self):
         return "A discount here."
 
-    
