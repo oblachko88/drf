@@ -10,6 +10,7 @@ from .serializers import ProductSerializer
 from .permissions import IsStaffEditorPermission
 
 
+
 class ProductListCreateAPIView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
