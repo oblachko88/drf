@@ -28,6 +28,8 @@ class ProductListCreateAPIView(generics.ListCreateAPIView):
         # send a DJango signal
 
 
+
+
 product_list_create_view = ProductListCreateAPIView.as_view()
 
 
