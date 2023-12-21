@@ -31,6 +31,8 @@ class ProductListCreateAPIView(generics.ListCreateAPIView):
 
 
 
+
+
 product_list_create_view = ProductListCreateAPIView.as_view()
 
 
