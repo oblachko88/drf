@@ -14,7 +14,10 @@ from .permissions import IsStaffEditorPermission
 class ProductListCreateAPIView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    authentication_classes = [authentication.SessionAuthentication]
+    authentication_classes = [
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication
+        ]
     permission_classes = [permissions.IsAdminUser, IsStaffEditorPermission]
 
     def perform_create(self, serializer):
@@ -75,7 +78,12 @@ product_destroy_view = ProductDestroyAPIView.as_view()
 # product_list_view = ProductListView.as_view()
 
 
-class ProductMixinView(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.RetrieveModelMixin, generics.GenericAPIView):
+class ProductMixinView(
+                    mixins.CreateModelMixin, 
+                    mixins.ListModelMixin, 
+                    mixins.RetrieveModelMixin, 
+                    generics.GenericAPIView
+                    ):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     lookup_field = 'pk'
